@@ -13,6 +13,7 @@ import com.uca.capas.domain.Usuario;
 import com.uca.capas.domain.Sucursal;
 import com.uca.capas.domain.Empleado;
 import com.uca.capas.dto.*;
+import com.uca.capas.repositories.SucursalRepository;
 import com.uca.capas.service.EmpleadoService;
 import com.uca.capas.service.SucursalService;
 import com.uca.capas.service.UsuarioService;
@@ -62,19 +63,51 @@ public class SucursalController {
 		return mav;
 	}
 	
+	@RequestMapping("/backhome")
+	public ModelAndView homeb(@RequestParam(value ="flag")int idSuc) {
+		ModelAndView mav = new ModelAndView();
+		if(idSuc != 0) {
+			
+			List<Sucursal> sl = null;
+			sl = sucursalService.listaSucursales();
+			Sucursal sx = new Sucursal();
+			
+				mav.addObject("s", sl);
+				mav.addObject("s1", sx);
+				mav.setViewName("home");
+		}
+		return mav;
+	}
+	
 	@RequestMapping("/editperfil")
 	public ModelAndView home2(@RequestParam(value ="ide")int idSuc) {
 		ModelAndView mav = new ModelAndView();
 			Sucursal nSuc = new Sucursal();
 			nSuc = sucursalService.findSucursal(idSuc);
 			
-			Sucursal nSuc1 = new Sucursal();
-
+			SucursalDTO nSuc1 = new SucursalDTO();
 			
 			mav.addObject("nsuc", nSuc);
 			mav.addObject("nsuc1", nSuc1);
 
 			mav.setViewName("editsuc");
+		return mav;
+	}
+	
+	@RequestMapping("/guardareditsuc")
+	public ModelAndView home3(@ModelAttribute SucursalDTO nsuc1) {
+		ModelAndView mav = new ModelAndView();
+		SucursalDTO sucu2 = nsuc1;
+		
+		List<Empleado> el2 = null;
+		el2 = empleadoService.empxsuc(nsuc1.getIdSucursal());
+		
+		sucursalService.Update(sucu2);
+
+		
+			mav.addObject("s", nsuc1);
+			mav.addObject("e", el2);
+			mav.setViewName("perfilsuc");
 		return mav;
 	}
 }

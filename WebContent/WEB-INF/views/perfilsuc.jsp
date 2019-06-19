@@ -29,6 +29,14 @@
 		 	style="width: 100%;" id="nuevaSuc" type="submit">Editar ${ s.sucNombre }</button>
 		 	
 		 	</form:form>
+		 	<br>
+		 	<p>Regresar a todas las sucursales</p>
+<form:form action="${pageContext.request.contextPath}/backhome" method="POST">
+  			<input type="hidden" name="flag"  value=${s.idSucursal}>		 				
+		 	<button class="btn btn-lg btn-danger btn-block btn-signin" 
+		 	style="width: 100%;" id="nuevaSuc" type="submit">Lista de Sucursales</button>
+		 	
+		 	</form:form>
 </div>
    <div class="main" style="display: flex; border-radius:25px; background-color: #19386b; margin-top:25px; margin-left:150px; margin-right:150px;">
    

@@ -23,7 +23,8 @@
 </div>
 
    <div class="main container" style="margin-top:25px;">
-   <form:form action="${pageContext.request.contextPath}/home" method="POST" modelAttribute="nsuc1">
+   <form:form action="${pageContext.request.contextPath}/guardareditsuc" method="POST" modelAttribute="nsuc1">
+	<form:input type="hidden" name="fdsasdf"  path="idSucursal" value="${nsuc.idSucursal}" />	
 		 		<div style="display:flex;">
 		 			<div style="flex: 50%;">
 		 			<div class="input-group input-group-lg">

@@ -45,7 +45,8 @@
 		 	style="z-index:500; position:relative; top:0; right:0; width: 100%;" id="nuevaSuc" type="submit">Ver Perfil</button>
 		 	</form>
 		 	<br>
-		 	<form:form action="${pageContext.request.contextPath}/home" method="POST" modelAttribute="usuario">
+		 	<form:form action="${pageContext.request.contextPath}/editperfil" method="POST" modelAttribute="usuario">
+		 	  			<input type="hidden" name="ide"  value=${s.idSucursal}>		 				
 		 <button class="btn btn-success btn-md" 
 		 	style="z-index:500; position:relative; top:0; right:0; width: 100%;" id="nuevaSuc" type="submit">Editar Sucursal</button>
 		 	</form:form>
