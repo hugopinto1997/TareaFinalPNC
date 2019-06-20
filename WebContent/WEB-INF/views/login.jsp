@@ -15,6 +15,7 @@
 <!-- se vincula al hoja de estilo para definir el aspecto del formulario de login-->  
 </head>
 <body bgcolor="#00000" style="background-color:#325182;">
+<img src="https://cdn.flickeringmyth.com/wp-content/uploads/2018/11/Toy-Story-4-logo.jpg" alt="W3Schools.com" style="width:104px;height:142px;">
 	<div id="Contenedor">
 		 <div class="Icon">
                     <!--Icono de usuario-->

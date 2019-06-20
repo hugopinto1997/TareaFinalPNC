@@ -23,10 +23,10 @@
 </div>
 <div style="color:#fff; position:absolute; right:0; top:0; margin:40px;">
 <p>Desea agregar una Sucursal?</p>
-<form:form action="${pageContext.request.contextPath}/home" method="POST" modelAttribute="usuario">
-		 	<button class="btn btn-lg btn-primary btn-block btn-signin" 
-		 	style="width: 100%;" id="nuevaSuc" type="submit">Nueva Sucursal</button>
-		 	
+<form:form action="${pageContext.request.contextPath}//editperfil2" method="POST" modelAttribute="usuario">
+		 	  			<input type="hidden" name="ide"  value="0">		 				
+		 <button class="btn btn-success btn-md" 
+		 	style="z-index:500; position:relative; top:0; right:0; width: 100%;" id="nuevaSuc" type="submit">Agregar Sucursal</button>
 		 	</form:form>
 </div>
 <div class="main container">
@@ -51,7 +51,8 @@
 		 	style="z-index:500; position:relative; top:0; right:0; width: 100%;" id="nuevaSuc" type="submit">Editar Sucursal</button>
 		 	</form:form>
 		 	<br>
-		 	<form:form action="${pageContext.request.contextPath}/home" method="POST" modelAttribute="usuario">
+		 	<form:form action="${pageContext.request.contextPath}/delete" method="POST" modelAttribute="usuario">
+		 			 	  			<input type="hidden" name="i"  value=${s.idSucursal}>		 				
 		 <button class="btn btn-danger btn-md" 
 		 	style="width:100%;" id="nuevaSuc" type="submit">Eliminar Sucursal</button>
 		 	</form:form>

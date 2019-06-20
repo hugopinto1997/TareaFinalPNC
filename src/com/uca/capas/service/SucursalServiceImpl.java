@@ -36,12 +36,37 @@ public class SucursalServiceImpl implements SucursalService {
 		Sucursal s = sR.findOne(suc1.getIdSucursal());
 		s.setIdSucursal(suc1.getIdSucursal());
 		s.setSucNombre(suc1.getSucNombre());
-		s.sethEntrada(suc1.gethEntrada());
-		s.sethSalida(suc1.gethSalida());
+		s.sethEntrada(suc1.getEntrada());
+		s.sethSalida(suc1.getSalida());
 		s.setnMesas(suc1.getnMesas());
 		s.setSucUbicacion(suc1.getSucUbicacion());
 		s.setSucGerente(suc1.getSucGerente());
 		entityManager.merge(s);
+		entityManager.flush();
+		return 1;
+	}
+	
+	@Override
+	@Transactional
+	public int Agregar(SucursalDTO suc12) throws DataAccessException{
+		Sucursal s3 = new Sucursal();
+		s3.setSucNombre(suc12.getSucNombre());
+		s3.sethEntrada(suc12.getEntrada());
+		s3.sethSalida(suc12.getSalida());
+		s3.setnMesas(suc12.getnMesas());
+		s3.setSucUbicacion(suc12.getSucUbicacion());
+		s3.setSucGerente(suc12.getSucGerente());
+		entityManager.persist(s3);
+		entityManager.flush();
+		return 1;
+	}
+	
+	@Override
+	@Transactional
+	public int Delete(Integer id) throws DataAccessException{
+		Sucursal sd = null;
+		sd = sR.findOne(id);
+		entityManager.remove(sd);
 		entityManager.flush();
 		return 1;
 	}

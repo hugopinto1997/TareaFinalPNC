@@ -11,6 +11,7 @@ import com.uca.capas.domain.Sucursal;
 @Repository
 public interface SucursalRepository extends JpaRepository<Sucursal, Integer> {
 	public List<Sucursal> findAll();
+	public void delete(Integer id);
 	
 	/*@Query(nativeQuery= true,value="select * "
 			+"from sucursal "

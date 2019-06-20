@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -66,7 +67,6 @@ public class SucursalController {
 	@RequestMapping("/backhome")
 	public ModelAndView homeb(@RequestParam(value ="flag")int idSuc) {
 		ModelAndView mav = new ModelAndView();
-		if(idSuc != 0) {
 			
 			List<Sucursal> sl = null;
 			sl = sucursalService.listaSucursales();
@@ -75,39 +75,87 @@ public class SucursalController {
 				mav.addObject("s", sl);
 				mav.addObject("s1", sx);
 				mav.setViewName("home");
-		}
+		
 		return mav;
 	}
 	
 	@RequestMapping("/editperfil")
 	public ModelAndView home2(@RequestParam(value ="ide")int idSuc) {
 		ModelAndView mav = new ModelAndView();
-			Sucursal nSuc = new Sucursal();
+		
+		Sucursal nSuc = new Sucursal();	
+		nSuc = sucursalService.findSucursal(idSuc);
+		SucursalDTO nSuc1 = new SucursalDTO();
+		nSuc1.setIdSucursal(idSuc);
+
+		mav.addObject("nsuc", nSuc);
+		mav.addObject("nsuc1", nSuc1);
+		mav.setViewName("editsuc");
+		
+		return mav;
+	}
+	@RequestMapping("/editperfil2")
+	public ModelAndView home4(@RequestParam(value ="ide")int idSuc) {
+		ModelAndView mav = new ModelAndView();
+		Sucursal nSuc = new Sucursal();	
 			nSuc = sucursalService.findSucursal(idSuc);
-			
 			SucursalDTO nSuc1 = new SucursalDTO();
-			
+			nSuc1.setIdSucursal(idSuc);
+
 			mav.addObject("nsuc", nSuc);
 			mav.addObject("nsuc1", nSuc1);
-
-			mav.setViewName("editsuc");
+			mav.setViewName("agregarsuc");
 		return mav;
 	}
 	
-	@RequestMapping("/guardareditsuc")
-	public ModelAndView home3(@ModelAttribute SucursalDTO nsuc1) {
+	@RequestMapping(value="/guardareditsuc",method= RequestMethod.POST)
+	public ModelAndView home4(@ModelAttribute SucursalDTO nsuc1) {
 		ModelAndView mav = new ModelAndView();
 		SucursalDTO sucu2 = nsuc1;
 		
-		List<Empleado> el2 = null;
-		el2 = empleadoService.empxsuc(nsuc1.getIdSucursal());
-		
 		sucursalService.Update(sucu2);
-
+		List<Empleado> el2 = null;
 		
+			
+			el2 = empleadoService.empxsuc(nsuc1.getIdSucursal());
 			mav.addObject("s", nsuc1);
 			mav.addObject("e", el2);
-			mav.setViewName("perfilsuc");
+			mav.setViewName("perfilsuc");	
 		return mav;
 	}
+	
+	@RequestMapping(value="/savesuc",method= RequestMethod.POST)
+	public ModelAndView home3(@ModelAttribute SucursalDTO nsuc1) {
+		ModelAndView mav = new ModelAndView();
+		SucursalDTO sucu2 = nsuc1;
+		SucursalDTO sucu3 = null;
+
+		List<Sucursal> el2 = null;
+		
+			sucursalService.Agregar(sucu2);
+			
+			el2 = sucursalService.listaSucursales();
+			mav.addObject("s", el2);
+			mav.addObject("s1", sucu3);
+			mav.setViewName("home");	
+		return mav;
+	}
+	
+	@RequestMapping(value="/delete",method= RequestMethod.POST)
+	public ModelAndView addsufffc(@RequestParam(value ="i")int idSuc) {
+		ModelAndView mav = new ModelAndView();
+		sucursalService.Delete(idSuc);
+		List<Sucursal> sl = null;
+		sl = sucursalService.listaSucursales();
+		Sucursal sx = new Sucursal();
+		
+			mav.addObject("s", sl);
+			mav.addObject("s1", sx);
+			mav.setViewName("home");
+		
+		return mav;
+	}
+	
+	
+	
 }

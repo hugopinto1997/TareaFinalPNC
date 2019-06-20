@@ -1,19 +1,15 @@
 package com.uca.capas.dto;
 
 import java.sql.Time;
-import java.util.List;
 
-import com.uca.capas.domain.Empleado;
-
-public class SucursalDTO {
-	
-	private Integer idSucursal;
+public class AddSucDTO {
+private Integer idSucursal;
 	
 	private String sucNombre;
 	
-	private String hEntrada;
+	private Time hEntrada;
 	
-	private String hSalida;
+	private Time hSalida;
 	
 	private String sucUbicacion;
 	
@@ -28,28 +24,6 @@ public class SucursalDTO {
 	public void setIdSucursal(Integer idSucursal) {
 		this.idSucursal = idSucursal;
 	}
-	
-	public Time getEntrada() {
-		if(this.hEntrada == null) {
-			return null;
-		}else {
-			int hora = Integer.parseInt(hEntrada.substring(0,2));
-			int min = Integer.parseInt(hEntrada.substring(3,5));
-			Time t = new Time(hora,min,00);
-			return t;
-		}
-	}
-	
-	public Time getSalida() {
-		if(this.hSalida == null) {
-			return null;
-		}else {
-			int hora2 = Integer.parseInt(hSalida.substring(0,2));
-			int min2 = Integer.parseInt(hSalida.substring(3,5));
-			Time t2 = new Time(hora2,min2,00);
-			return t2;
-		}
-	}
 
 	public String getSucNombre() {
 		return sucNombre;
@@ -59,19 +33,19 @@ public class SucursalDTO {
 		this.sucNombre = sucNombre;
 	}
 
-	public String gethEntrada() {
+	public Time gethEntrada() {
 		return hEntrada;
 	}
 
-	public void sethEntrada(String hEntrada) {
+	public void sethEntrada(Time hEntrada) {
 		this.hEntrada = hEntrada;
 	}
 
-	public String gethSalida() {
+	public Time gethSalida() {
 		return hSalida;
 	}
 
-	public void sethSalida(String hSalida) {
+	public void sethSalida(Time hSalida) {
 		this.hSalida = hSalida;
 	}
 

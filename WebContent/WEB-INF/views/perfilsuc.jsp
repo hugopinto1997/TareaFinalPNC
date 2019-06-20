@@ -67,6 +67,21 @@
   <div style="text-align:center; margin-left:150px; margin-right:150px; margin-top:25px; margin-bottom:50px;">
    	<h1 style="font-weight:bold;">Lista de Empleados</h1>
    	<br>
+   	<div style="text-align: center; display:flex;">
+   		<div style="flex:50%; margin-left:250px;">
+   		<h3>Desea agregar un nuevo empleado?</h3>
+   		</div>
+   		<div style="margin-right:250px; flex:50%;">
+   		 <form:form action="${pageContext.request.contextPath}/editperfil" method="POST" modelAttribute="usuario">
+            
+		 	<button class="btn btn-lg btn-success btn-signin" 
+		 	style="width: 40%; margin-top:5px;" id="nuevaSuc" type="submit">Agregar Empleado</button>
+		 	
+		 	</form:form>
+   		</div>
+   	
+   	</div>
+   	<br>
    	<table style="text-align:center; font-size:24px; margin-top:10px;" class="main container" border="0">
        <tr style="background-color:#19386b; text-align:center; color:#fff;">
            <center><th>Nombre</th></center>
@@ -87,12 +102,24 @@
            <th>${e.generoString}</th>
            <th>${e.estadoString}</th>
             <th>
-            <form:form action="${pageContext.request.contextPath}/editperfil" method="POST" modelAttribute="usuario">
+           <div style="display: flex;">
+           		<div style="flex: 50%;">
+           		 <form:form action="${pageContext.request.contextPath}/editperfil" method="POST" modelAttribute="usuario">
             
 		 	<button class="btn btn-sm btn-primary btn-signin" 
-		 	style="width: 100%;" id="nuevaSuc" type="submit">Editar ${ e.eNombre }</button>
+		 	style="width: 100%;" id="nuevaSuc" type="submit">Editar</button>
 		 	
 		 	</form:form>
+           		</div>
+           		<div style="flex: 50%;">
+           		 <form:form action="${pageContext.request.contextPath}/editperfil" method="POST" modelAttribute="usuario">
+            
+		 	<button class="btn btn-sm btn-danger btn-signin" 
+		 	style="width: 100%;" id="nuevaSuc" type="submit">Eliminar</button>
+		 	
+		 	</form:form>
+           		</div>
+           </div>
             </th>
           
            
