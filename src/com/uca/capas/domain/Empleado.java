@@ -20,7 +20,7 @@ public class Empleado {
 	@GeneratedValue(generator="empleado_id_empleado_seq", strategy = GenerationType.AUTO)
 	@SequenceGenerator(name = "empleado_id_empleado_seq", sequenceName = "public.empleado_id_empleado_seq")
 	@Column(name = "id_empleado")
-	private Integer idSucursal;
+	private Integer idEmpleado;
 	
 	@Column(name = "enombre")
 	private String eNombre;
@@ -55,12 +55,12 @@ public class Empleado {
 		}
 	}
 
-	public Integer getIdSucursal() {
-		return idSucursal;
+	public Integer getIdEmpleado() {
+		return idEmpleado;
 	}
 
-	public void setIdSucursal(Integer idSucursal) {
-		this.idSucursal = idSucursal;
+	public void setIdEmpleado(Integer idEmpleado) {
+		this.idEmpleado = idEmpleado;
 	}
 
 	public String geteNombre() {

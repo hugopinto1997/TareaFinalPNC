@@ -49,6 +49,14 @@ public class Sucursal {
 	public Integer getIdSucursal() {
 		return idSucursal;
 	}
+	
+	public String getHoraEString(){
+		 return (String) hEntrada.toString().subSequence(0,5);
+		}
+	
+	public String getHoraSString(){
+		 return (String) hSalida.toString().subSequence(0,5);
+		}
 
 	public void setIdSucursal(Integer idSucursal) {
 		this.idSucursal = idSucursal;

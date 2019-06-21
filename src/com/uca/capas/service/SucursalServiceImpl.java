@@ -2,6 +2,7 @@ package com.uca.capas.service;
 
 import java.util.List;
 
+
 import javax.persistence.EntityManager;
 import javax.transaction.Transactional;
 
@@ -59,6 +60,19 @@ public class SucursalServiceImpl implements SucursalService {
 		entityManager.persist(s3);
 		entityManager.flush();
 		return 1;
+	}
+	
+	public SucursalDTO SucToDTO(Integer id) throws DataAccessException{
+		Sucursal s = sR.findOne(id);
+		SucursalDTO sdto = new SucursalDTO();
+		sdto.sethEntrada(s.getHoraEString());
+		sdto.sethSalida(s.getHoraSString());
+		sdto.setIdSucursal(id);
+		sdto.setSucGerente(s.getSucGerente());
+		sdto.setSucNombre(s.getSucNombre());
+		sdto.setSucUbicacion(s.getSucUbicacion());
+		sdto.setnMesas(s.getnMesas());
+		return sdto;
 	}
 	
 	@Override

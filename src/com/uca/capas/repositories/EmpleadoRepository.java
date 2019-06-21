@@ -4,6 +4,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 import com.uca.capas.domain.Empleado;
+import com.uca.capas.domain.Sucursal;
 
 import java.util.List;
 
@@ -13,4 +14,6 @@ public interface EmpleadoRepository extends JpaRepository<Empleado, Integer> {
 			+"from empleado "
 			+ "where id_sucursal = ?1")
 	public List<Empleado> listaempxsuc(Integer id);
+	public Empleado findOne(Integer id);
+
 }

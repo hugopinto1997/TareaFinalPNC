@@ -72,12 +72,13 @@
    		<h3>Desea agregar un nuevo empleado?</h3>
    		</div>
    		<div style="margin-right:250px; flex:50%;">
-   		 <form:form action="${pageContext.request.contextPath}/editperfil" method="POST" modelAttribute="usuario">
-            
+   		 <form action="${pageContext.request.contextPath}/agregaremp" method="POST">
+            <input type="hidden" name="idemp"  value=${s.idSucursal}>		 				
+           
 		 	<button class="btn btn-lg btn-success btn-signin" 
-		 	style="width: 40%; margin-top:5px;" id="nuevaSuc" type="submit">Agregar Empleado</button>
+		 	style="width: 40%; margin-top:5px;" id="boton" type="submit">Agregar Empleado</button>
 		 	
-		 	</form:form>
+		 	</form>
    		</div>
    	
    	</div>
@@ -104,16 +105,16 @@
             <th>
            <div style="display: flex;">
            		<div style="flex: 50%;">
-           		 <form:form action="${pageContext.request.contextPath}/editperfil" method="POST" modelAttribute="usuario">
-            
+           		 <form:form action="${pageContext.request.contextPath}/editemp" method="POST">
+                          			<input type="hidden" name="idemp" id="idemp"  value="${e.idEmpleado }">		 				
 		 	<button class="btn btn-sm btn-primary btn-signin" 
 		 	style="width: 100%;" id="nuevaSuc" type="submit">Editar</button>
 		 	
 		 	</form:form>
            		</div>
            		<div style="flex: 50%;">
-           		 <form:form action="${pageContext.request.contextPath}/editperfil" method="POST" modelAttribute="usuario">
-            
+           		 <form:form action="${pageContext.request.contextPath}/delemp" method="POST">
+		 	                          			<input type="hidden" name="id" id="id" value="${e.idEmpleado }">		 				
 		 	<button class="btn btn-sm btn-danger btn-signin" 
 		 	style="width: 100%;" id="nuevaSuc" type="submit">Eliminar</button>
 		 	

@@ -15,5 +15,6 @@ public interface SucursalService {
 	 public int Update(SucursalDTO suc1) throws DataAccessException;
 	 public int Agregar(SucursalDTO suc12) throws DataAccessException;
 	 public int Delete(Integer idSuc) throws DataAccessException;
+	 public SucursalDTO SucToDTO(Integer id) throws DataAccessException;
 
 }
