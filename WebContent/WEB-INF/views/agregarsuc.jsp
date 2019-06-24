@@ -30,21 +30,21 @@
 		 			<div class="input-group input-group-lg">
 		 			  <span class="input-group-addon" id="sizing-addon1">Nombre Sucursal</span>
 		 		
-		 			<form:input style="width: 90%; border-width:1px; border-color:#000;" type="text" class="form-control"
+		 			<form:input style="width: 100%; border-width:1px; border-color:#000;" type="text" class="form-control"
 		 			 path="sucNombre"
 		 			 placeholder="Nombre" aria-describedby="sizing-addon1" />
-								<form:errors path="sucNombre" cssStyle="color:#000;">errores</form:errors><br>
+					<form:errors path="sucNombre" cssStyle="color:#000;"></form:errors><br>
 				
 				</div>
 				<br>
 				<div class="input-group input-group-lg">
 				  		 			  <span class="input-group-addon" id="sizing-addon1">Gerente Sucursal</span>
 				 
-				  <form:input style="border-width:1px; border-color:#000; width:90%;" 
+				  <form:input style="border-width:1px; border-color:#000; width:100%;" 
 				  type="text" class="form-control" path="sucGerente" placeholder="Gerente" aria-describedby="sizing-addon1" />
+				<form:errors path="sucGerente" cssStyle="height:100px; margin-top:100px; color:#000000;"></form:errors><br>
 				
 				</div>
-												<form:errors path="sucGerente" cssStyle="width:100%; height:100px; color:#000000; font-size:40px;"></form:errors><br>
 				
 					<br>
 				<div class="width:90%; input-group input-group-lg">
@@ -52,6 +52,7 @@
 				  
 				  <form:input style="width: 90%; border-width:1px; border-color:#000;" 
 				  type="number" class="form-control" path="nMesas" placeholder="Número de mesas" aria-describedby="sizing-addon1" />
+				<form:errors path="nMesas" cssStyle="color:#000;"></form:errors><br>
 				
 				</div>
 		 			</div>

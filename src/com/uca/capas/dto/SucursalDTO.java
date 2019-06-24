@@ -2,9 +2,11 @@ package com.uca.capas.dto;
 
 import java.sql.Time;
 
+
 import java.util.List;
 
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 
 import com.uca.capas.domain.Empleado;
 
@@ -24,6 +26,7 @@ public class SucursalDTO {
 	@NotEmpty(message="Este campo es requerido")
 	private String sucUbicacion;
 	
+	@NotNull(message="Este campo es requerido")
 	private Integer nMesas;
 	
 	@NotEmpty(message="Este campo es requerido")

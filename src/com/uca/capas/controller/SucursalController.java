@@ -112,11 +112,17 @@ public class SucursalController {
 	}
 	
 	@RequestMapping(value="/guardareditsuc",method= RequestMethod.POST)
-	public ModelAndView home4(@Valid @ModelAttribute SucursalDTO nsuc1, BindingResult result) {
+	public ModelAndView home4(@Valid @ModelAttribute("nsuc1") SucursalDTO nsuc1, BindingResult result) {
 		ModelAndView mav = new ModelAndView();
 		SucursalDTO sucu2 = nsuc1;
-		
-		
+			
+		if(result.hasErrors()) {
+			Sucursal nSuc = new Sucursal();	
+			nSuc.setIdSucursal(nsuc1.getIdSucursal());
+			mav.addObject("nsuc",nSuc);
+			mav.addObject("nsuc1",nsuc1);
+			mav.setViewName("editsuc");
+		}else {
 			sucursalService.Update(sucu2);
 			List<Empleado> el2 = null;
 			
@@ -125,11 +131,14 @@ public class SucursalController {
 				mav.addObject("s", sucu2);
 				mav.addObject("e", el2);
 				mav.setViewName("perfilsuc");
+		}
+		
+			
 		return mav;
 	}
 	
 	@RequestMapping(value="/savesuc",method= RequestMethod.POST)
-	public ModelAndView homefd3(@Valid @ModelAttribute SucursalDTO nsuc1, BindingResult result) {
+	public ModelAndView homefd3(@Valid @ModelAttribute("nsuc1") SucursalDTO nsuc1, BindingResult result) {
 		ModelAndView mav = new ModelAndView();
 
 		if(result.hasErrors()) {

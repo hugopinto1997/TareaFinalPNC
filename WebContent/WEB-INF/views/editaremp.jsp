@@ -35,6 +35,8 @@
 		 			<form:input style="width: 90%; border-width:1px; border-color:#000;" type="text" class="form-control"
 		 			 path="eNombre" value="${e.eNombre }"
 		 			 placeholder="Nombre" aria-describedby="sizing-addon1" />
+							  <br> <br> <br><form:errors path="eNombre" cssStyle="color:#000;"></form:errors><br>
+			
 				</div>
 				<br>
 				<div class="input-group input-group-lg">
@@ -42,6 +44,8 @@
 				 
 				  <form:input style="border-width:1px; border-color:#000; width:90%;" 
 				  type="number" value="${e.eEdad }" class="form-control" path="eEdad" placeholder="Edad" aria-describedby="sizing-addon1" />
+								  <br> <br> <br><form:errors path="eEdad" cssStyle="color:#000;"></form:errors><br>
+				
 				</div>
 					<br>
 		 			</div>

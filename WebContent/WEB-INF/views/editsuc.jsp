@@ -30,25 +30,31 @@
 		 			<div class="input-group input-group-lg">
 		 			  <span class="input-group-addon" id="sizing-addon1">Nombre Sucursal</span>
 		 		
-		 			<form:input style="width: 90%; border-width:1px; border-color:#000;" type="text" class="form-control"
+		 			<form:input style="width: 100%; border-width:1px; border-color:#000;" type="text" class="form-control"
 		 			 path="sucNombre" value="${nsuc.sucNombre}" name="SucNombre"
 		 			 placeholder="Nombre" aria-describedby="sizing-addon1" />
+					<form:errors path="sucNombre" cssStyle="color:#000;"></form:errors><br>
+			
 				</div>
 				<br>
 				<div class="input-group input-group-lg">
 				  		 			  <span class="input-group-addon" id="sizing-addon1">Gerente Sucursal</span>
 				 
-				  <form:input style="border-width:1px; border-color:#000; width:90%;" 
+				  <form:input style="border-width:1px; border-color:#000; width:100%;" 
 				  value="${nsuc.sucGerente}" name="SucGerente"
 				  type="text" class="form-control" path="sucGerente" placeholder="Gerente" aria-describedby="sizing-addon1" />
+				<form:errors path="sucGerente" cssStyle="color:#000;"></form:errors><br>
+			
 				</div>
 					<br>
 				<div class="width:90%; input-group input-group-lg">
 				  		 			  <span class="input-group-addon" id="sizing-addon1">Número de mesas</span>
 				  
-				  <form:input style="width: 90%; border-width:1px; border-color:#000;" 
+				  <form:input style="width: 100%; border-width:1px; border-color:#000;" 
 				  value="${nsuc.nMesas}" name="SucNmeas"
 				  type="number" class="form-control" path="nMesas" placeholder="Número de mesas" aria-describedby="sizing-addon1" />
+				<form:errors path="nMesas" cssStyle="color:#000;"></form:errors><br>
+			
 				</div>
 		 			</div>
 		 			<div style="flex:50%;">
@@ -60,6 +66,8 @@
 		 			<form:input style="border-width:1px; border-color:#000;" type="time" class="form-control"
 		 			 path="hEntrada" value="${nsuc.hEntrada}" name="HEntrada"
 		 			 placeholder="Hora Entrada" aria-describedby="sizing-addon1" />
+		 			<form:errors path="hEntrada" cssStyle="color:#000;"></form:errors><br>
+		 	
 				</div>
 				<br>
 				<div class="input-group input-group-lg">
@@ -68,6 +76,8 @@
 				  <form:input style="border-width:1px; border-color:#000;" 
 				  value="${nsuc.hSalida}" name="HSalida"
 				  type="time" class="form-control" path="hSalida" placeholder="Hora Salida" aria-describedby="sizing-addon1" />
+				<form:errors path="hSalida" cssStyle="color:#000;"></form:errors><br>
+			
 				</div>
 				<br>
 				<div class="input-group input-group-lg">
@@ -76,6 +86,8 @@
 				  <form:input style="border-width:1px; border-color:#000;" 
 				  value="${nsuc.sucUbicacion}" name="SucUbicacion"
 				  type="text" class="form-control" path="sucUbicacion" placeholder="Ubicación" aria-describedby="sizing-addon1" />
+				<form:errors path="sucUbicacion" cssStyle="color:#000;"></form:errors><br>
+			
 				</div>
 		 			</div>
 		 		

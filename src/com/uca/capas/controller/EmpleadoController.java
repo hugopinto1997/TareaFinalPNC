@@ -76,19 +76,28 @@ public class EmpleadoController {
 	}
 	
 	@RequestMapping(value="/updateemp",method= RequestMethod.POST)
-	public ModelAndView home23(@ModelAttribute EmpleadoDTO e) {
+	public ModelAndView home23(@Valid @ModelAttribute("e1") EmpleadoDTO e,
+			BindingResult result) {
 		ModelAndView mav = new ModelAndView();
 		EmpleadoDTO e2 = e;
 		SucursalDTO sucu = sucursalService.SucToDTO(e2.getIdSucursal());
 
 		List<Empleado> el2 = null;
 		
-			empleadoService.Update(e2);
+		if(result.hasErrors()) {
+			Empleado em = empleadoService.findEmpleado(e.getIdEmpleado());
+			
+			mav.addObject("e", em);
+			mav.addObject("e1", e);
+			mav.setViewName("editaremp");
+		}else {
+	empleadoService.Update(e2);
 			
 			el2 = empleadoService.empxsuc(e2.getIdSucursal());
 			mav.addObject("s", sucu);
 			mav.addObject("e", el2);
-			mav.setViewName("perfilsuc");	
+			mav.setViewName("perfilsuc");
+		}
 		return mav;
 	}
 	

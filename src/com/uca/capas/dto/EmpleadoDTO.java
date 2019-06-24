@@ -3,6 +3,8 @@ package com.uca.capas.dto;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
+import org.hibernate.validator.constraints.Range;
+
 public class EmpleadoDTO {
 	
 	private Integer idEmpleado;
@@ -14,6 +16,7 @@ public class EmpleadoDTO {
 	private String eNombre;
 	
 	@NotNull(message="Este campo es requerido")
+	@Range(min=18,max=75,message="Favor ingresar dentro del rango de 18 a 75")
 	private Integer eEdad;
 	
 	private String eGenero;
