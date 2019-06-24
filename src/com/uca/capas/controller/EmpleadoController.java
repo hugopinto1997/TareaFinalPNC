@@ -2,8 +2,11 @@ package com.uca.capas.controller;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -36,19 +39,25 @@ public class EmpleadoController {
 	}
 	
 	@RequestMapping(value="/saveemp",method= RequestMethod.POST)
-	public ModelAndView home3(@ModelAttribute EmpleadoDTO e) {
+	public ModelAndView home3(@Valid @ModelAttribute("e") EmpleadoDTO e,
+			BindingResult result) {
 		ModelAndView mav = new ModelAndView();
 		EmpleadoDTO e2 = e;
 		SucursalDTO sucu = sucursalService.SucToDTO(e2.getIdSucursal());
 
 		List<Empleado> el2 = null;
 		
-			empleadoService.Agregar(e2);
-			
-			el2 = empleadoService.empxsuc(e2.getIdSucursal());
-			mav.addObject("s", sucu);
-			mav.addObject("e", el2);
-			mav.setViewName("perfilsuc");	
+			if(result.hasErrors()) {
+				mav.addObject("e", e2);
+				mav.setViewName("agregaremp");
+			}else {
+				empleadoService.Agregar(e2);
+				
+				el2 = empleadoService.empxsuc(e2.getIdSucursal());
+				mav.addObject("s", sucu);
+				mav.addObject("e", el2);
+				mav.setViewName("perfilsuc");
+			}
 		return mav;
 	}
 	

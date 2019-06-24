@@ -24,5 +24,13 @@ public class MainController {
 		return mav;
 	}
 	
+	@RequestMapping(value="/")
+	public ModelAndView login2() {
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("usuario", new LoginUsuarioDTO());
+		mav.setViewName("login");
+		return mav;
+	}
+	
 	
 }

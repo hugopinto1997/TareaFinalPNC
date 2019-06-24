@@ -1,7 +1,10 @@
 package com.uca.capas.dto;
 
 import java.sql.Time;
+
 import java.util.List;
+
+import javax.validation.constraints.NotEmpty;
 
 import com.uca.capas.domain.Empleado;
 
@@ -9,16 +12,21 @@ public class SucursalDTO {
 	
 	private Integer idSucursal;
 	
+	@NotEmpty(message="Este campo es requerido")
 	private String sucNombre;
-	
+
+	@NotEmpty(message="Este campo es requerido")
 	private String hEntrada;
 	
+	@NotEmpty(message="Este campo es requerido")
 	private String hSalida;
 	
+	@NotEmpty(message="Este campo es requerido")
 	private String sucUbicacion;
 	
 	private Integer nMesas;
 	
+	@NotEmpty(message="Este campo es requerido")
 	private String sucGerente;
 
 	public Integer getIdSucursal() {
@@ -60,7 +68,9 @@ public class SucursalDTO {
 	}
 
 	public String gethEntrada() {
-		return hEntrada;
+		
+			return hEntrada;
+		
 	}
 
 	public void sethEntrada(String hEntrada) {

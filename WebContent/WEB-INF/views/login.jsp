@@ -15,7 +15,6 @@
 <!-- se vincula al hoja de estilo para definir el aspecto del formulario de login-->  
 </head>
 <body bgcolor="#00000" style="background-color:#325182;">
-<img src="https://cdn.flickeringmyth.com/wp-content/uploads/2018/11/Toy-Story-4-logo.jpg" alt="W3Schools.com" style="width:104px;height:142px;">
 	<div id="Contenedor">
 		 <div class="Icon">
                     <!--Icono de usuario-->
@@ -25,17 +24,26 @@
 		 	<form:form action="${pageContext.request.contextPath}/home" method="POST" modelAttribute="usuario">
 		 		<div class="input-group input-group-lg">
 				  <span class="input-group-addon" id="sizing-addon1"><i class="glyphicon glyphicon-envelope"></i></span>
-				  <form:input type="email" class="form-control" path="uCorreo" name="correo" placeholder="Correo" id="Correo" aria-describedby="sizing-addon1" />
+				  <form:input type="text" class="form-control" path="uCorreo" name="correo" placeholder="Correo" id="Correo" aria-describedby="sizing-addon1" />
 				</div>
+				<form:errors path="uCorreo" cssStyle="color:#000;"></form:errors><br>
+				
 				<br>
 				<div class="input-group input-group-lg">
 				  <span class="input-group-addon" id="sizing-addon1"><i class="glyphicon glyphicon-lock"></i></span>
 				  <form:input type="password" name="contra" class="form-control" path="uPassword" placeholder="******" aria-describedby="sizing-addon1" />
+					
+					<form:errors path="uPassword" cssStyle="color:#000;"></form:errors><br>
+				
 				</div>
+				
 				<br>
-				<button class="btn btn-lg btn-primary btn-block btn-signin" id="IngresoLog" type="submit">Entrar</button>
+				<center>
+				<button class="btn btn-lg btn-primary btn-block btn-signin" id="IngresoLog" type="submit">Entrar</button>				
+		 		</center>
 		 	</form:form>
+		 		
 		 </div>	
-		 </div>
+		 </div>		 		 
 </body>
 </html>

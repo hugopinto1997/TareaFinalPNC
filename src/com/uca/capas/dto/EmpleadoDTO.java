@@ -1,13 +1,19 @@
 package com.uca.capas.dto;
 
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+
 public class EmpleadoDTO {
 	
 	private Integer idEmpleado;
 	
+	
 	private Integer idSucursal;
 	
+	@NotEmpty(message="Este campo es requerido")
 	private String eNombre;
 	
+	@NotNull(message="Este campo es requerido")
 	private Integer eEdad;
 	
 	private String eGenero;
