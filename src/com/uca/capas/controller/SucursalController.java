@@ -35,12 +35,12 @@ public class SucursalController {
 	EmpleadoService empleadoService;
 	
 	@RequestMapping("/home")
-	public ModelAndView home(@Valid @ModelAttribute LoginUsuarioDTO usuario, BindingResult result) {
+	public ModelAndView home(@Valid @ModelAttribute("usuario") LoginUsuarioDTO usuario, BindingResult result) {
 		ModelAndView mav = new ModelAndView();
 		Usuario u = new Usuario();
 		Sucursal s1 = new Sucursal();
 		if(result.hasErrors()) {
-			mav.addObject("usuario", new LoginUsuarioDTO());
+			mav.addObject("usuario", usuario);
 			mav.setViewName("login");
 		}else {
 			u = usuarioService.loginValidation(usuario.getuCorreo(), usuario.getuPassword());
